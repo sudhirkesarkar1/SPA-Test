@@ -1,0 +1,38 @@
+body{
+    background-color: blanchedalmond;
+}
+
+.txtara{
+    width: 400px;
+    height: 100px;
+    padding: 5px;
+}
+
+.btn{
+    border-radius: 0.2%;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-size:15px;
+    margin: .5em;
+}
+
+.signup{
+    background-color: cornflowerblue;
+}
+
+.set{
+    background-color: crimson
+}
+
+.get{
+    background-color: chartreuse;
+}
+
+.delete{
+    background-color: coral;
+}
+
+.hide{
+    display: none;
+}
