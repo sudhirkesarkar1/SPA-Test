@@ -56,6 +56,6 @@ function setData(){
 
 // function delUser
 
- getUserBtn.addEventListener("click",getData);
- setUserBtn.addEventListener("click",setData);
- delUser.addEventListener("click",delUser);
+//  getUserBtn.addEventListener("click",getData);
+//  setUserBtn.addEventListener("click",setData);
+//  delUser.addEventListener("click",delUser);

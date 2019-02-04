@@ -13,32 +13,52 @@
     </header>
     <section>
         <form action="" method="post" id="user-form">
-            <label for="user"></label>
+            <label for="user">Username</label>
             <input type="text" name="user" id="user" placeholder="Username" required>
-            <label for="password"></label>
+            <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="password" required>
             <input type="submit" value="Login" >
         </form>
         
         <form action="" method="post" id="signup-form" class="hide">
-                <label for="user"></label>
-                <input type="text" name="user" id="suser" placeholder="Username" required>
-                <label for="password"></label>
-                <input type="password" name="password" id="spassword" placeholder="Password" required>
-                <label for="confpassword"></label>
-                <input type="password" name="confpassword" id="sconfpassword" placeholder="Confirm Password" required>
-                <label for="email"></label>
-                <input type="email" name="email" id="semail" required>
+                <label for="suser">Username</label>
+                <input type="text" name="suser" id="suser" placeholder="Username" required>
+                <label for="spassword">Password</label>
+                <input type="password" name="spassword" id="spassword" placeholder="Password" required>
+                <label for="sconfpassword">Confirm Password</label>
+                <input type="password" name="sconfpassword" id="sconfpassword" placeholder="Confirm Password" required>
+                <label for="semail">Email</label>
+                <input type="email" name="semail" id="semail" required>
                 <input type="submit" value="SignUp" >
          </form>
 
         <button class="btn signup" id="signup">SignUp</button>
         <p id="status"></p>
-        <button class="btn get" id="getUser">GetUsers</button>
+        <!-- <button class="btn get" id="getUser">GetUsers</button>
         <button class="btn set" id="setUser">SetUser</button>
-        <button class="btn delete" id="delUser">Delete</button>
+        <button class="btn delete" id="delUser">Delete</button> -->
+
+        <div id="splitScreen" class="hide">
+
+            <button class="btn set" id="logout">Log Out</button>
+            <form action="" method="post" id="billSplit" >
+                    <label for="amount">Amount</label>
+                    <input type="number" name="amount" id="amount" placeholder="Amount" required>
+                    <label for="reason">Reason</label>
+                    <input type="text" name="reason" id="reason" placeholder="Reason" required>
+                    <label for="user">User</label>
+                    <select id="user">
+                            <option value="1">test1</option>
+                            <option value="2" selected="selected">test2</option>
+                            <option value="3">test3</option>
+                          </select>
+                    <input type="submit" value="SignUp" >
+             </form>
+        </div>
+
     </section>
 </body>
     <script src="js/app.js"></script>
     <script src="js/signin.js"></script>
+    <script src="js/split.js"></script>
 </html>

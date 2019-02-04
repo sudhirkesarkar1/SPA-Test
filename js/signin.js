@@ -12,19 +12,46 @@ function clearForm(){
     passwordId.value = '';
 }
 
+function clearSignupForm(){
+    
+    document.getElementById('suser').value='';
+    document.getElementById('spassword').value='';
+    document.getElementById('sconfpassword').value='';
+    document.getElementById('semail').value='';
+}
+
+
 function validate(userInfo){
-    if(userInfo.length>0){
-        userFormId.classList.add('hide');
-        statusId.innerHTML = 'login successfully'
-    }else{
-        statusId.innerHTML = 'try again'
-    }
+        let validate = true;
+        let uname ;
+        for(let user in userInfo){
+            validate=!(isEmpty(userInfo[user]._id));
+            validate=!(isEmpty(userInfo[user].password));
+            validate=!(isEmpty(userInfo[user].email));
+            validate=!(isEmpty(userInfo[user].username));
+            uname = userInfo[user].username;
+        }
+        if(validate){
+            userFormId.classList.add('hide');
+            signupId.classList.add('hide');
+            signupformId.classList.add('hide');
+            // statusId.innerHTML = 'login successfully';
+            console.log(uname);
+            sessionStorage.setItem('user',uname );
+            getSplitScreen();
+            
+         }else{
+            statusId.innerHTML = 'try again'
+         }
+    
+        
+    
     //statusId.innerHTML  = userInfo.length>0 ? "done":"reenter";
     //userFormId.display = 'none';
-    console.log(userInfo);
-    for(let user in userInfo){
-        console.log(userInfo[user]._id);
-    }
+    // console.log(userInfo);
+    // for(let user in userInfo){
+    //     console.log(userInfo[user]._id);
+    
 }
 
 function submitFormValues(e){
@@ -120,7 +147,9 @@ function createUser(){
           xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
               console.log(this.responseText);
-              statusId.innerHTML = 'user created';
+              clearSignupForm();
+              let userInfo=[JSON.parse(this.responseText)];
+              validate(userInfo);
             }
           });
           
@@ -143,3 +172,19 @@ function signUp(e){
 userFormId.addEventListener('submit',submitFormValues);
 signupId.addEventListener('click',viewSignUpform);
 signupformId.addEventListener('submit',signUp);
+
+function getSession(){
+    if( sessionStorage.getItem('user' )){
+        
+        userFormId.classList.add('hide');
+        signupId.classList.add('hide');
+        signupformId.classList.add('hide');
+        getSplitScreen();
+    }
+}
+
+window.onload = function() {
+    getSession();
+ 
+    // yourFunction(param1, param2);
+};
